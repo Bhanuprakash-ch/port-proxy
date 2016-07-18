@@ -1,0 +1,6 @@
+applications:
+- name: port-proxy
+  buildpack: nodejs_buildpack
+  memory: 64M
+  disk_quota: 48M
+  path: .
