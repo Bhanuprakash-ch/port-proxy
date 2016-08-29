@@ -22,6 +22,10 @@
                         <include>*.sh</include>
                         <include>**/*.js</include>
                     </includes>
+                    <excludes>
+                        <exclude>**/vendor/**/*.*</exclude>
+                        <exclude>node_modules/**/*.*</exclude>
+                    </excludes>
                 </configuration>
                 <executions>
                     <execution>
