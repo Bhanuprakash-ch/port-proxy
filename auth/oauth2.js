@@ -25,6 +25,9 @@ var request = require('request'),
     vcap = require('../configurator/vcap');
 
 var getAppDomain = function() {
+    if(process.env.DOMAIN) {
+        return process.env.DOMAIN;
+    }
     var appUris = vcap.getAppVcap().uris;
     if(appUris) {
         var appUrl = appUris[0];

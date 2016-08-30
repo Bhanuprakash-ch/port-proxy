@@ -26,3 +26,17 @@ cf set-env <port_proxy_app_name> PROXY_HOST <hostname>
 cf set-env <port_proxy_app_name> PROXY_PORT <port_name>
 cf start <port_proxy_app_name>
 ```
+
+### Turning on authentication layer
+Port-proxy is also able to verify access token, which makes it useful as an authentication layer. To turn it on:
+```
+cf set-env <port_proxy_app_name> AUTH_ENABLED true
+cf restart <port_proxy_app_name>
+```
+From now on, port-proxy expects `Authorization` header with OAuth2 token. Request w/o token or with invalid or expired one is going to result with `401 Unauthorized` error. 
+
+#### Local development
+To develop and run port-proxy locally, you need to set additionaly the DOMAIN environment variable which points to the target TAP installation:
+```
+export DOMAIN=<domain_w/o_"console"_subdomain>
+```
